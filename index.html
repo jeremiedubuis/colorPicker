@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>colorPicker</title>
+    <style>
+        .color-picker {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            cursor: pointer;
+            visibility: hidden;
+        }
+
+        .color-picker.color-picker-toggled {
+            visibility: visible;
+        }
+
+        .color-picker-trigger {
+            width: 25px;
+            height: 25px;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="color-picker-wrapper">
+        <div class="color-picker">
+            <canvas class="color-picker-canvas"></canvas>
+        </div>
+        <div class="color-picker-trigger">
+
+        </div>
+    </div>
+
+    <script src="ColorPicker.js"></script>
+    <script>
+        new ColorPicker(document.getElementsByClassName('color-picker-trigger')[0],document.getElementsByClassName('color-picker')[0], {
+            onPick: function(color) {
+                document.getElementsByClassName('color-picker-trigger')[0].style.backgroundColor = color;
+            }
+        });
+    </script>
+
+</body>
+</html>
